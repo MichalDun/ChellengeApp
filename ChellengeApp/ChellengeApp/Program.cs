@@ -1,5 +1,5 @@
 ﻿var name = "Ewa";
-bool Kobieta = true; //czy bezpieczniej użyć String?
+bool Kobieta = false; //czy bezpieczniej użyć String?
 var age = 30;
 
 if (Kobieta == true)
@@ -22,6 +22,10 @@ else
     if (age < 18)
     {
         Console.WriteLine("Niepełnoletni Mężczyzna");
+    }
+    else 
+    {
+        Console.WriteLine("Mężczyzna pełnoletni");
     }
 }
 
