@@ -1,18 +1,14 @@
 ﻿var name = "Ewa";
-bool Kobieta = false; //czy bezpieczniej użyć String?
-var age = 30;
+bool Woman = true; //czy bezpieczniej użyć String?
+var age = 33;
 
-if (Kobieta == true)
+if (Woman == true)
 {
     if (age < 30)
     {
         Console.WriteLine("Kobieta poniżej 30 lat");
     }
-    else
-    {
-        Console.WriteLine("Kobieta w wieku powyżej 29 lat");
-    }
-    if (age == 33 && name == "Ewa") //dodatkowo sprawdzamy czy Ewa jest kobietą
+    else if (age == 33 && name == "Ewa") //dodatkowo sprawdzamy czy Ewa jest kobietą
     {
         Console.WriteLine("Ewa, lat 33");
     }
