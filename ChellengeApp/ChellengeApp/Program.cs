@@ -1,28 +1,23 @@
-﻿var name = "Ewa";
-bool Woman = true; //czy bezpieczniej użyć String?
-var age = 32;
+﻿int number = 65375;
+string numberInString = number.ToString();
+char[] letters = numberInString.ToArray();
 
-if (Woman == true)
+List<string> digits = new List<string> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+List<int> numberOfDigits = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+foreach (char letter in letters)
 {
-    if (age < 30)
+    for (int i = 0; i < 10; i++)
     {
-        Console.WriteLine("Kobieta poniżej 30 lat");
-    }
-    else if (age == 33 && name == "Ewa") //dodatkowo sprawdzamy czy Ewa jest kobietą
-    {
-        Console.WriteLine("Ewa, lat 33");
-    }
-    else
-    {
-        Console.WriteLine("Kobieta w wieku 29+");
+        if (letter.Equals(digits[i][0]))
+        {
+            numberOfDigits[i] = numberOfDigits[i] + 1;
+        }
     }
 }
-else if (age < 18)
-    {
-        Console.WriteLine("Niepełnoletni Mężczyzna");
-    }
-    else 
-    {
-        Console.WriteLine("Mężczyzna pełnoletni");
-    }
-
+Console.WriteLine("W przypadku liczy " + number + ":");
+for (int i = 0; i < 10; i++)
+{
+    Console.WriteLine("Cyfr " + digits[i] + " jest " + numberOfDigits[i]);
+}
