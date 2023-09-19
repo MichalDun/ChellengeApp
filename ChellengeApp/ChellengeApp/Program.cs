@@ -1,23 +1,39 @@
-﻿int number = 65375;
-string numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+﻿using ChellengeApp;
+using System.ComponentModel.Design;
 
-List<string> digits = new List<string> { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+Employee employee1 = new Employee("Michał", "Dunajewski", 38);
+Employee employee2 = new Employee("Jan", "Kowalski", 54);
+Employee employee3 = new Employee("Grażyna", "Nowak", 26);
 
-List<int> numberOfDigits = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+employee1.AddRating(5);
+employee1.AddRating(7);
+employee1.AddRating(9);
+employee1.AddRating(10);
+employee1.AddRating(10);
 
-foreach (char letter in letters)
+employee2.AddRating(2);
+employee2.AddRating(6);
+employee2.AddRating(8);
+employee2.AddRating(4);
+employee2.AddRating(9);
+
+employee3.AddRating(8);
+employee3.AddRating(7);
+employee3.AddRating(10);
+employee3.AddRating(8);
+employee3.AddRating(8);
+
+List<int> employeeResults = new List<int> { employee1.Result, employee2.Result, employee3.Result};
+List<Employee> Employees = new List<Employee> { employee1, employee2, employee3 };
+var maxResult = employeeResults.Max();
+
+Console.WriteLine(" Maksymalna zdobyta ilość punktów to: " + maxResult);
+Console.WriteLine(" Zdobył/a/li ją:");
+
+foreach (var employee in Employees)
 {
-    for (int i = 0; i < 10; i++)
+    if (employee.Result == maxResult)
     {
-        if (letter.Equals(digits[i][0]))
-        {
-            numberOfDigits[i] = numberOfDigits[i] + 1;
-        }
+        Console.WriteLine(" " + employee.Name + " " + employee.Surname + ", wiek: " + employee.Age);
     }
-}
-Console.WriteLine("W przypadku liczy " + number + ":");
-for (int i = 0; i < 10; i++)
-{
-    Console.WriteLine("Cyfr " + digits[i] + " jest " + numberOfDigits[i]);
 }
