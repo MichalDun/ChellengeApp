@@ -1,30 +1,46 @@
-﻿namespace ChellengeApp
+﻿using System.Runtime.CompilerServices;
+
+namespace ChellengeApp
 {
-    internal class Employee
+    public class Employee
     {
-        private List<int> rating = new List<int>();
-        public Employee(string name, string surname, int age)
+        private List<float> grades = new List<float>();
+
+        public Employee(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
-            this.Age = age;
+
         }
+
+
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
 
-        public int Age { get; private set; }
-
-        public int Result
+        public void AddGrade(float grade)
         {
-            get
-            {
-                return this.rating.Sum();
-            }
+            this.grades.Add(grade);
         }
-        public void AddRating(int score)
+
+        public Statistics GetStatistics()
         {
-            this.rating.Add(score);
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            
+            foreach (var grade in this.grades)
+            {
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Average += grade;
+            }
+
+            statistics.Average = statistics.Average / this.grades.Count;
+
+
+            return statistics;
         }
     }
 }

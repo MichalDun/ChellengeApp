@@ -1,20 +1,11 @@
 ﻿using ChellengeApp;
 
-User user1 = new User("Adam", "234324jkhnk");
-User user2 = new User("Michał", "234324jkhnk");
-User user3 = new User("Paweł", "234324jkhnk");
+var employee = new Employee("Michał", "Dunajewski");
+employee.AddGrade(2);
+employee.AddGrade(5);
+employee.AddGrade(3);
+var statistics = employee.GetStatistics();
 
-
-user1.AddScore(7);
-user1.SubScore(6);
-user1.AddScore(4);
-
-user2.AddScore(5);
-user2.AddScore(5);
-user2.AddScore(5);
-
-user3.AddScore(5);
-user3.AddScore(5);
-user3.AddScore(5);
-
-Console.WriteLine(user1.Result);
+Console.WriteLine($"Avarage: {statistics.Average:N2}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
